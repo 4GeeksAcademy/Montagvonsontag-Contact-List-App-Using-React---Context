@@ -1,6 +1,8 @@
 export const initialStore=()=>{
   return{
     message: null,
+    agendas: null,
+    agenda: null,
     todos: [
       {
         id: 1,
@@ -18,6 +20,19 @@ export const initialStore=()=>{
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
+    case 'get_agenda_by_slug':
+      return{
+        ...store,
+        agenda: action.payload
+      }  
+    
+    
+    case 'get_agendas':
+      return {
+        ...store,
+        agendas: action.payload
+      }
+
     case 'add_task':
 
       const { id,  color } = action.payload
